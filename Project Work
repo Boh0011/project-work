@@ -56,7 +56,7 @@ int studente ()
 	}
 		if (o==1)
 	{
-		
+		cout<<"ciccione"<<endl;
 	
 	}
 	else if (o==2)
