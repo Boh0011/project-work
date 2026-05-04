@@ -4,81 +4,251 @@
 #include <cstring>
 #include <ctime>
 using namespace std;
-int scelta, o;
-int studente();
-int docente();
-int genitore();
-int info();
+int scelta;
+void alimentari();
+void detersivi();
+void abbigliamento();
+void pagamento();
+void esci();
+void alimentari1();
 int main()
 {
-	cout<<"******************************************"<<endl;
-	cout<<"*|Benvenuto/a nel registro elettronico  |*"<<endl;
-	cout<<"*|Sei un docente, studente o genitore?  |*"<<endl;
-	cout<<"*|1. Studente                           |*"<<endl;
-	cout<<"*|2. docente                            |*"<<endl;
-	cout<<"*|3. Genitore                           |*"<<endl;
-	cout<<"******************************************"<<endl;
-	cin>>scelta;
-	while (scelta!=1 && scelta!=2 && scelta!=3 && scelta!=4)
+    cout<<"*********************************************************************"<<endl;
+    cout<<"Scegli cosa acquistare                                               "<<endl;
+    cout<<"1. Alimentari                                                        "<<endl;
+    cout<<"2. Detersivi                                                         "<<endl;
+    cout<<"3. Abbigliamento                                                     "<<endl;
+    cout<<"4. Vai al Pagamento                                                  "<<endl;
+    cout<<"5. Esci dal programma                                                "<<endl;
+    cout<<"*********************************************************************"<<endl;
+    cin>>scelta;
+	return 0;
+	while (scelta<1 || scelta>5)
 	{
-		cout<<"Cio' non rientra fra le opzioni. Riinserire"<<endl;
-		cin>>scelta;
+	    cout<<"Non e fra le opzioni. Riinserire"<<endl;
+	    cin>>scelta;
 	}
 	if (scelta==1)
 	{
-		studente ();
-	
+		alimentari();
 	}
 	else if (scelta==2)
 	{
-		docente ();
+		detersivi();
 	}
-	else 
+	else if (scelta==3)
 	{
-		genitore ();
+		abbigliamento();
 	}
-	return 0;
-}
-int studente ()
-{
-	cout<<"***************************************************************"<<endl;
-	cout<<"*|Benvenuto/a nel registro elettronico dello/a studente/ssa  |*"<<endl;
-	cout<<"*|1. Voti                                                    |*"<<endl;
-	cout<<"*|2. Annotazioni/Note                                        |*"<<endl;
-	cout<<"*|3. Lezioni                                                 |*"<<endl;
-	cout<<"*|4. Didattica                                               |*"<<endl;
-	cout<<"***************************************************************"<<endl;
-	cin>>o;
-	while (o!=1 && o!=2 && o!=3 && o!=4)
+	else if (scelta==4)
 	{
-		cout<<"Cio' non rientra fra le opzioni. Riinserire"<<endl;
-		cin>>o;
+		pagamento();
 	}
-		if (o==1)
+	else
 	{
-		cout<<"ciccione"<<endl;
+		esci();
+	}
 	
+	return 0;   
+}
+void alimentari()
+{
+	int o;
+	cout<<"****************************************************************************"<<endl;
+    cout<<"Benvenuto nella zona alimentari, qui puoii scegliere vari tipidi alimentari "<<endl;                                            
+    cout<<"1. Latticini                                                                "<<endl;
+    cout<<"2. Macelleria                                                               "<<endl;
+    cout<<"3. Frutta / Verdura                                                         "<<endl;
+    cout<<"4. Bevande                                                                  "<<endl;
+    cout<<"5. Snack                                                                    "<<endl;
+    cout<<"6. Pasticceria                                                              "<<endl;
+	cout<<"7. Pescivendolo                                                             "<<endl;                              
+	cout<<"8. Vai al Pagamento                                                         "<<endl;
+    cout<<"9. Esci dal programma                                                       "<<endl;
+    cout<<"****************************************************************************"<<endl;
+    cin>>o;
+    while (o<1 || o>9)
+	{
+	    cout<<"Non e fra le opzioni. Riinserire"<<endl;
+	    cin>>o;
+	}
+	if (o==1)
+	{
+		alimentari1();
 	}
 	else if (o==2)
 	{
-		cout<<"ciccione"<<endl;
+		detersivi();
 	}
 	else if (o==3)
 	{
-		cout<<"ciccione"<<endl;
+		abbigliamento();
 	}
-	else 
+	else if (o==4)
 	{
-	    cout<<"ciccione"<<endl;
+		pagamento();
 	}
-	return 0;	
+	else
+	{
+		esci();
+	}
 }
-int docente()
+void detersivi()
 {
-	return 0;
+    
 }
-int genitore()
+void abbigliamento()
 {
-	return 0;
+   
 }
-
+void pagamento()
+{
+    
+}
+void esci()
+{
+    
+}
+void alimentari1()
+{
+    int op;
+    cout<<"********************************************************************************"<<endl;
+    cout<<"Benvenuto nella zona latticini, qui puoii scegliere vari tipi di latticini  "<<endl;                                            
+    cout<<"1. Formaggio                                                                "<<endl;
+    cout<<"2. Latte                                                                    "<<endl;
+    cout<<"3. Yougurt                                                                  "<<endl;
+    cout<<"4. Panna                                                                    "<<endl;
+    cout<<"5. Burro                                                                    "<<endl;
+    cout<<"6. Latticini fresci                                                         "<<endl;                              
+	cout<<"7. Vai al Pagamento                                                         "<<endl;
+    cout<<"8. Esci dal programma                                                       "<<endl;
+    cout<<"****************************************************************************"<<endl;
+    cin>>op;
+    while (op<1 || op>8)
+	{
+	    cout<<"Non e fra le opzioni. Riinserire"<<endl;
+	    cin>>op;
+	}
+	if (op==1)
+	{
+		cout<<"***************************************************************************"<<endl;
+        cout<<"Scegli cosa acquistare:                                               "<<endl;
+        cout<<"   PRODOTTO                                                      COSTO"<<endl;
+        cout<<"1. Parmigiano Reggiano(stagionatura di 12 mesi)..................15,24 €/Kg"<<endl;
+        cout<<"2. Grana Padano(stagionatura di 12/15 mesi)......................10,49 €/Kg"<<endl;
+        cout<<"3. Mozzarella....................................................7,91 €/Kg"<<endl;
+        cout<<"4. Gorgonzola ...................................................11,50 €/Kg"<<endl;
+        cout<<"5. Pecorino......................................................13,00 €/Kg"<<endl;
+        cout<<"---------------------------------------------------------------------------"<<endl;
+        cout<<"6. Pagamento                                                         "<<endl;
+        cout<<"7. Esci dal programma                                                "<<endl;
+        cout<<"****************************************************************************"<<endl;
+        cin>>op;
+        while (op<1 || op>7)
+	    {
+	    cout<<"Non e fra le opzioni. Riinserire"<<endl;
+	    cin>>op;
+	    }
+	    if (op==6)
+	    {
+	        pagamento();
+	    }
+	    else
+	    {
+	        esci();
+	    }
+	}
+	else if (op==2)
+	{
+	    cout<<"************************************************"<<endl;
+	    cout<<"scegli tra i due tipi di latte:"<<endl;
+	    cout<<"1. Latte di Origine Animale"<<endl;
+	    cout<<"2. Latte vegetale"<<endl;
+	    cout<<"************************************************"<<endl;
+	    cin>>op;
+	    while(op<1 || op>2)
+	    {
+	      cout<<"Non e fra le opzioni. Riinserire"<<endl;
+	      cin>>op;
+	    }
+	    if (op==1)
+	    {
+	        cout<<"*****************************************************"<<endl;
+	        cout<<"scegli cosa acquistare:"<<endl;
+	        cout<<"   PRODOTTO                            COSTO"<<endl;
+	        cout<<"1. Latte intero........................1,60€"<<endl;
+	        cout<<"2. Latte Parzialmente scremato.........1,60€"<<endl;
+	        cout<<"3. Latte di capra......................2,50€"<<endl;
+	        cout<<"4. Latte di pecora.....................4,10€"<<endl;
+	        cout<<"----------------------------------------------------"<<endl;
+	        cout<<"5. Pagamento"<<endl;
+	        cout<<"6. Esci dal programma"<<endl;
+	        cout<<"****************************************************"<<endl;
+	    }
+	    else
+	    {
+	        cout<<"*****************************************************"<<endl;
+	        cout<<"scegli cosa acquistare:"<<endl;
+	        cout<<"   PRODOTTO                            COSTO"<<endl;
+	        cout<<"1. Latte di soia.......................1.20€"<<endl;
+	        cout<<"2. Latte di riso.......................1.60€"<<endl;
+	        cout<<"3. Latte di avena......................1.60€"<<endl;
+	        cout<<"4. Latte di mandorla...................3.00€"<<endl;
+	        cout<<"5. latte di cocco......................2.40€"<<endl;
+	        cout<<"--------------------------------------------"<<endl;
+	        cout<<"5. Pagamento"<<endl;
+	        cout<<"6. Esci dal programma"<<endl;
+	        cout<<"****************************************************"<<endl
+	    }
+	}
+	else if (op==3)
+	{
+		cout<<"************************************************"<<endl;
+	    cout<<"scegli tra i due tipi di Yougurt:"<<endl;
+	    cout<<"1. Yougurt di Origine Animale"<<endl;
+	    cout<<"2. Yougurt vegetale"<<endl;
+	    cout<<"************************************************"<<endl;
+	    cin>>op;
+	    while(op<1 || op>2)
+	    {
+	      cout<<"Non e fra le opzioni. Riinserire"<<endl;
+	      cin>>op;
+	    }
+		if ()
+		cout<<"*****************************************************"<<endl;
+	    cout<<"scegli cosa acquistare:"<<endl;
+	    cout<<"   PRODOTTO                            COSTO"<<endl;
+	    cout<<"1. Yougurt greco.......................1,60€"<<endl;
+	    cout<<"2. Latte Parzialmente scremato.........1,60€"<<endl;
+	    cout<<"3. Latte di capra......................2,50€"<<endl;
+	    cout<<"4. Latte di pecora.....................4,10€"<<endl;
+	    cout<<"----------------------------------------------------"<<endl;
+	    cout<<"5. Pagamento"<<endl;
+	    cout<<"6. Esci dal programma"<<endl;
+	    cout<<"****************************************************"<<endl
+	}
+	else if (op==4)
+	{
+		pagamento();
+	}
+	else if (op==1)
+	{
+		alimentari1();
+	}
+	else if (op==2)
+	{
+		detersivi();
+	}
+	else if (op==3)
+	{
+		abbigliamento();
+	}
+	else if (op==4)
+	{
+		pagamento();
+	}
+	else
+	{
+		esci();
+	}
+}
