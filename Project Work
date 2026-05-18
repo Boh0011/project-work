@@ -4,29 +4,37 @@
 #include <cstring>
 #include <ctime>
 using namespace std;
-int scelta;
+int scelta, opzionevest;
+float tot=0;
+
 void alimentari();
 void detersivi();
 void abbigliamento();
 void pagamento();
-void esci();
 void alimentari1();
 void detersivi1();
 void detersivi2();
 void detersivi3();
 void detersivi4();
+void abbigliamentoM();
+void abbigliamentoF();
+void Pasticceria();
+void pagamento();
+void pagamentoS();
+void pagamentoN();
 int main()
 {
+    
     cout<<"*********************************************************************"<<endl;
     cout<<"Scegli cosa acquistare                                               "<<endl;
     cout<<"1. Alimentari                                                        "<<endl;
     cout<<"2. Detersivi                                                         "<<endl;
     cout<<"3. Abbigliamento                                                     "<<endl;
-    cout<<"4. Vai al Pagamento                                                  "<<endl;
-    cout<<"5. Esci dal programma                                                "<<endl;
+    cout<<"4. Pasticceria                                               "<<endl;
+    cout<<"8. Vai al Pagamento                                                  "<<endl;
+    cout<<"9. Esci dal programma                                                "<<endl;
     cout<<"*********************************************************************"<<endl;
     cin>>scelta;
-	return 0;
 	while (scelta<1 || scelta>5)
 	{
 	    cout<<"Non e fra le opzioni. Riinserire"<<endl;
@@ -34,7 +42,7 @@ int main()
 	}
 	if (scelta==1)
 	{
-		alimentari();
+	alimentari();
 	}
 	else if (scelta==2)
 	{
@@ -44,16 +52,28 @@ int main()
 	{
 		abbigliamento();
 	}
-	else if (scelta==4)
+	else if (scelta==8)
 	{
-		pagamento();
+	    if(tot == 0)
+	    {
+	        cout<<"Non c'e' nessun prodotto nel carrello,nessun pagamento puo' essere effettuato"<<endl;
+	        main();
+	    }
+	    else
+	    {
+	        pagamento();
+	    }
+	}
+	else if(scelta==4)
+	{
+	    Pasticceria();
 	}
 	else
 	{
-		esci();
+		exit(0);
 	}
 	
-	return 0;   
+	  return 0; 
 }
 void alimentari()
 {
@@ -94,20 +114,20 @@ void alimentari()
 	}
 	else
 	{
-		esci();
+		exit(0);
 	}
+	
 }
 void detersivi()
 {
-   int opzione;
-	string risp;
-	risp="SI";
-	
-	while(risp=="SI")
-	
+
+    string risp;
+    int opzione;
+    
+	while(risp != "NO" && risp !="no")
 	{
 	cout<<"*********************************************************************"<<endl;
-    cout<<"Scegli il tipo di detersivo"<<endl;
+    cout<<"Scegli il tipo di DETERSIVO"<<endl;
     cout<<"1. Detersivi per pavimento"<<endl;
     cout<<"2. Detersivo per capi bianchi"<<endl;
     cout<<"3. Detersivo per abbigliamento"<<endl;
@@ -116,7 +136,7 @@ void detersivi()
 	cin>>opzione;
 	while(opzione<1 || opzione>4)
 	{
-		cout<<"Non Ã¨ fra le opzioni. Riinserire"<<endl;
+		cout<<"Non rientra fra le opzioni. Riinserire"<<endl;
 		cin>>opzione;
 	}
 	if(opzione == 1)
@@ -124,23 +144,31 @@ void detersivi()
 		detersivi1();
 		cout<<"Vuoi continuare?"<<endl;
 		cin>>risp;
-		while(risp != "SI" && risp != "NO")
+		while(risp != "SI" && risp != "NO" && risp != "si" && risp !="no")
 		{
 		    cout<<"Riinserire la risposta"<<endl;
+		    cin>>risp;
 		}
+		
+		
 	}
 	else if(opzione == 2)
 	{
         detersivi2();
-        while(risp != "SI" && risp != "NO")
+        cout<<"Vuoi continuare?"<<endl;
+        cin>>risp;
+        while(risp != "SI" && risp != "NO" && risp != "si" && risp !="no")
 		{
 		    cout<<"Riinserire la risposta"<<endl;
+		    cin>>risp;
 		}
     }
 	else if(opzione == 3)
 	{
         detersivi3();
-        while(risp != "SI" && risp != "NO")
+        cout<<"Vuoi continuare?"<<endl;
+        cin>>risp;                                  
+        while(risp != "SI" && risp != "NO" && risp != "si" && risp !="no")
 		{
 		    cout<<"Riinserire la risposta"<<endl;
 		}
@@ -148,28 +176,141 @@ void detersivi()
 	else
 	{
         detersivi4();
-        while(risp != "SI" && risp != "NO")
+	}
+	}
+
+	if(risp == "NO" || risp == "no")
+	{
+	    pagamento();
+	}
+
+}
+	
+
+void abbigliamento()  
+{
+	
+	char sezione;
+	string risp;
+	while(risp != "NO" && risp !="no")
+	{
+	cout<<"*********************************************************************"<<endl;
+    cout<<"Scegli il tipo di ABBIGLIAMENTO(1,2,3,4)"<<endl;
+    cout<<"1. Magliette"<<endl;
+    cout<<"2. Pantaloni"<<endl;
+    cout<<"3. Felpe"<<endl;
+    cout<<"4. Biancheria"<<endl;
+    cout<<"*********************************************************************"<<endl;
+	cin>>opzionevest;
+	while(opzionevest<1 || opzionevest>4)
+	{
+		cout<<"Non rientra fra le opzioni. Riinserire"<<endl;
+		cin>>opzionevest;
+	}
+	cout<<"In che sezione verresti andare? (M/F)"<<endl;
+	cin>>sezione;
+	while(sezione!='M' && sezione !='F')
+	{
+		cout<<"Non rientra fra le opzioni. Riinserire"<<endl;
+		cin>>sezione;
+	}
+	if(sezione=='M')
+	{
+		abbigliamentoM();
+				cout<<"Vuoi continuare?"<<endl;
+        cin>>risp;
+        while(risp != "SI" && risp != "NO" && risp != "si" && risp !="no")
 		{
 		    cout<<"Riinserire la risposta"<<endl;
-		}
+		    cin>>risp;
+
+		
+	}
+	}
+	else
+	{
+	    abbigliamentoF();
+	    cout<<"Vuoi continuare?"<<endl;
+        cin>>risp;
+        while(risp != "SI" && risp != "NO" && risp != "si" && risp !="no")
+		{
+		    cout<<"Riinserire la risposta"<<endl;
+		    cin>>risp;
+	    }
+	    
+	}
+	}
 	if(risp == "NO")
 	{
 	    pagamento();
 	}
-	}
-	}
-}
-void abbigliamento()
-{
-   
+	
 }
 void pagamento()
 {
-    
-}
-void esci()
-{
-    
+    int risp,sconto, n;
+    string nom, via,sino;
+    char sn;
+    cout<<"*********************************************************************"<<endl;
+    cout<<"BENVENUTO NEL PAGAMENTO"<<endl;
+    cout<<"---------------------------------------------------------------------"<<endl;
+    cout<<"Vuoi crearti la carta? (Inserire opzione 1/2))"<<endl;
+    cout<<"1.SI"<<endl;
+    cout<<"2.NO"<<endl;
+    cin>>risp;
+    while(risp != 1 && risp != 2)
+    {
+        cout<<"Errore. Riinserire"<<endl;
+        cin>>risp;
+    }
+    if(risp==1)
+    {
+        pagamentoS();
+    }
+    else
+    {
+        pagamentoN();
+    }
+    cout<<"Vuoi spendere 5 euro per girare la ruota della fortuna per avere la possibilitaì di ricevere un ulteriore sconto? (S/N)"<<endl;
+    cin>>sn;
+    while(sn != 'S' && sn != 'N')
+    {
+        cout<<"Errore. Riinserire"<<endl;
+        cin>>sn;
+    }
+    if(sn == 'S')
+    {
+        srand(time(0));
+        n = rand() % 12+1;
+        if(n == 6)
+        {
+            cout<<"Il numero che ti è uscito è il "<<n<<". Poiche' e' il numero fortunato per ottenere lo sconto,ti toglieremo il 10 per cente dal totale da pagare"<<endl;
+            sconto=tot*0.10;
+            tot=tot-sconto+5;
+            cout<<"Il tuo totale ora è di "<<tot<<" euro"<<endl;
+        }
+        else
+        {
+            tot=tot+5;
+            cout<<"Non sei riuscito a trovare il numero che ti avrebbe portato allo sconto. Il totale e' di "<<tot<<" euro"<<endl;
+        }
+    }
+    cout<<"Vuoi continuare a comprare altri aritcoli?"<<endl;
+    cin>>sino;
+    while(sino !="SI" && sino !="NO" && sino !="si" && sino !="no")
+    {
+        cout<<"Sbagliato. Riinserire"<<endl;
+        cin>>sino;
+    }
+    if(sino == "SI" || sino =="si")
+    {
+        main();
+    }
+    else
+    {
+        cout<<"Grazie per l'acquisto!"<<endl;
+    }
+    cout<<"*********************************************************************"<<endl;
 }
 void alimentari1()
 {
@@ -196,11 +337,11 @@ void alimentari1()
 		cout<<"***************************************************************************"<<endl;
         cout<<"Scegli cosa acquistare:                                               "<<endl;
         cout<<"   PRODOTTO                                                      COSTO"<<endl;
-        cout<<"1. Parmigiano Reggiano(stagionatura di 12 mesi)..................15,24 €/Kg"<<endl;
-        cout<<"2. Grana Padano(stagionatura di 12/15 mesi)......................10,49 €/Kg"<<endl;
-        cout<<"3. Mozzarella....................................................7,91 €/Kg"<<endl;
-        cout<<"4. Gorgonzola ...................................................11,50 €/Kg"<<endl;
-        cout<<"5. Pecorino......................................................13,00 €/Kg"<<endl;
+        cout<<"1. Parmigiano Reggiano(stagionatura di 12 mesi)..................15,24 ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬/Kg"<<endl;
+        cout<<"2. Grana Padano(stagionatura di 12/15 mesi)......................10,49 ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬/Kg"<<endl;
+        cout<<"3. Mozzarella....................................................7,91 ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬/Kg"<<endl;
+        cout<<"4. Gorgonzola ...................................................11,50 ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬/Kg"<<endl;
+        cout<<"5. Pecorino......................................................13,00 ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬/Kg"<<endl;
         cout<<"---------------------------------------------------------------------------"<<endl;
         cout<<"6. Pagamento                                                         "<<endl;
         cout<<"7. Esci dal programma                                                "<<endl;
@@ -217,7 +358,7 @@ void alimentari1()
 	    }
 	    else
 	    {
-	        esci();
+	        exit;
 	    }
 	}
 	else if (op==2)
@@ -238,10 +379,10 @@ void alimentari1()
 	        cout<<"*****************************************************"<<endl;
 	        cout<<"scegli cosa acquistare:"<<endl;
 	        cout<<"   PRODOTTO                            COSTO"<<endl;
-	        cout<<"1. Latte intero........................1,60€"<<endl;
-	        cout<<"2. Latte Parzialmente scremato.........1,60€"<<endl;
-	        cout<<"3. Latte di capra......................2,50€"<<endl;
-	        cout<<"4. Latte di pecora.....................4,10€"<<endl;
+	        cout<<"1. Latte intero........................1,60ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬"<<endl;
+	        cout<<"2. Latte Parzialmente scremato.........1,60ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬"<<endl;
+	        cout<<"3. Latte di capra......................2,50ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬"<<endl;
+	        cout<<"4. Latte di pecora.....................4,10ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬"<<endl;
 	        cout<<"----------------------------------------------------"<<endl;
 	        cout<<"5. Pagamento"<<endl;
 	        cout<<"6. Esci dal programma"<<endl;
@@ -252,15 +393,15 @@ void alimentari1()
 	        cout<<"*****************************************************"<<endl;
 	        cout<<"scegli cosa acquistare:"<<endl;
 	        cout<<"   PRODOTTO                            COSTO"<<endl;
-	        cout<<"1. Latte di soia.......................1.20€"<<endl;
-	        cout<<"2. Latte di riso.......................1.60€"<<endl;
-	        cout<<"3. Latte di avena......................1.60€"<<endl;
-	        cout<<"4. Latte di mandorla...................3.00€"<<endl;
-	        cout<<"5. latte di cocco......................2.40€"<<endl;
+	        cout<<"1. Latte di soia.......................1.20ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬"<<endl;
+	        cout<<"2. Latte di riso.......................1.60ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬"<<endl;
+	        cout<<"3. Latte di avena......................1.60ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬"<<endl;
+	        cout<<"4. Latte di mandorla...................3.00ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬"<<endl;
+	        cout<<"5. latte di cocco......................2.40ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬"<<endl;
 	        cout<<"--------------------------------------------"<<endl;
 	        cout<<"5. Pagamento"<<endl;
 	        cout<<"6. Esci dal programma"<<endl;
-	        cout<<"****************************************************"<<endl
+	        cout<<"****************************************************"<<endl;
 	    }
 	}
 	else if (op==3)
@@ -276,18 +417,18 @@ void alimentari1()
 	      cout<<"Non e fra le opzioni. Riinserire"<<endl;
 	      cin>>op;
 	    }
-		if ()
+		if (op==1)
 		cout<<"*****************************************************"<<endl;
 	    cout<<"scegli cosa acquistare:"<<endl;
 	    cout<<"   PRODOTTO                            COSTO"<<endl;
-	    cout<<"1. Yougurt greco.......................1,60€"<<endl;
-	    cout<<"2. Latte Parzialmente scremato.........1,60€"<<endl;
-	    cout<<"3. Latte di capra......................2,50€"<<endl;
-	    cout<<"4. Latte di pecora.....................4,10€"<<endl;
+	    cout<<"1. Yougurt greco.......................1,60ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬"<<endl;
+	    cout<<"2. Latte Parzialmente scremato.........1,60ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬"<<endl;
+	    cout<<"3. Latte di capra......................2,50ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬"<<endl;
+	    cout<<"4. Latte di pecora.....................4,10ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬"<<endl;
 	    cout<<"----------------------------------------------------"<<endl;
 	    cout<<"5. Pagamento"<<endl;
 	    cout<<"6. Esci dal programma"<<endl;
-	    cout<<"****************************************************"<<endl
+	    cout<<"****************************************************"<<endl;
 	}
 	else if (op==4)
 	{
@@ -311,7 +452,7 @@ void alimentari1()
 	}
 	else
 	{
-		esci();
+		exit;
 	}
 }
 
@@ -319,8 +460,9 @@ void alimentari1()
 
 void detersivi1()
 {
-	int opzione;
-	float prezzo, tot;
+	int opzione, quant;
+	float prezzo;
+	
 	cout<<"*********************************************************************"<<endl;
     cout<<"Scegli il tipo di detersivo per PAVIMENTO"<<endl;
     cout<<"1. Detersivo n.1...........................................3,00$"<<endl;
@@ -328,110 +470,638 @@ void detersivi1()
     cout<<"3. Detersivo n.3...........................................4,00$"<<endl;
     cout<<"*********************************************************************"<<endl;
     cin>>opzione;
-    while(opzione<1 || opzione>4)
+    while(opzione<1 || opzione>3)
     {
-    	cout<<"Non Ã¨ fra le opzioni. Riinserire"<<endl;
+    	cout<<"Non rientra fra le opzioni. Riinserire"<<endl;
     	cin>>opzione;
 	}
+	cout<<"Quanti prodotti di questo tipo vuoi? (max. 5)"<<endl;
+	cin>>quant;
+	while(quant<1 || quant>5)
+	{
+	    cout<<"Errore. Riinserire"<<endl;
+	    cin>>quant;
+	}
+	
 	if(opzione == 1)
 	{
-		prezzo= 3,00;
+		prezzo=3.00*quant;
+		tot=prezzo+tot;
+
 	}
 	else if(opzione == 2)
 	{
-		prezzo= 3,50;
+		prezzo=3.50*quant;
+		tot=prezzo+tot;
+
 	}
 	else if(opzione == 3)
 	{
-		prezzo=4,00;
+		prezzo=4.00*quant;
+		tot=prezzo+tot;
+
 	}
 
 
 }
 void detersivi2() 
 {
-    int opzione;
-	float prezzo, tot;
+    int opzione, quant;
+	float prezzo;
 	cout<<"*********************************************************************"<<endl;
     cout<<"Scegli il tipo di detersivo per CAPI BIANCHI"<<endl;
-    cout<<"1. Detersivo n.1..........................................."<<endl;
-    cout<<"2. Detersivo n.2..........................................."<<endl;
-    cout<<"3. Detersivo n.3..........................................."<<endl;
+    cout<<"1. Detersivo n.1...........................................3,00$"<<endl;
+    cout<<"2. Detersivo n.2...........................................3,50$"<<endl;
+    cout<<"3. Detersivo n.3...........................................4,00$"<<endl;
     cout<<"*********************************************************************"<<endl;
     cin>>opzione;
     while(opzione<1 || opzione>4)
     {
-    	cout<<"Non Ã¨ fra le opzioni. Riinserire"<<endl;
+    	cout<<"Non rientra fra le opzioni. Riinserire"<<endl;
     	cin>>opzione;
+	}
+	cout<<"Quanti prodotti di questo tipo vuoi? (max. 5)"<<endl;
+	cin>>quant;
+	while(quant<1 || quant>5)
+	{
+	    cout<<"Errore. Riinserire"<<endl;
+	    cin>>quant;
 	}
 	if(opzione == 1)
 	{
-		prezzo= 3,00;
+		prezzo= 3.00*quant;
+		tot=prezzo+tot;
+
 	}
 	else if(opzione == 2)
 	{
-		prezzo= 3,50;
+		prezzo= 3.50*quant;
+		tot=prezzo+tot;
+
 	}
 	else if(opzione == 3)
 	{
-		prezzo=4,00;
+		prezzo=4.00*quant;
+		tot=prezzo+tot;
+
 	}
 }
 void detersivi3()
 {
-    int opzione;
-	float prezzo, tot;
+    int opzione, quant;
+	float prezzo;
 	cout<<"*********************************************************************"<<endl;
     cout<<"Scegli il tipo di detersivo per ABBIGLIAMENTO"<<endl;
-    cout<<"1. Detersivo n.1..........................................."<<endl;
-    cout<<"2. Detersivo n.2..........................................."<<endl;
-    cout<<"3. Detersivo n.3..........................................."<<endl;
+    cout<<"1. Detersivo n.1...........................................3,00$"<<endl;
+    cout<<"2. Detersivo n.2...........................................3,50$"<<endl;
+    cout<<"3. Detersivo n.3...........................................4,00$"<<endl;
     cout<<"*********************************************************************"<<endl;
     cin>>opzione;
     while(opzione<1 || opzione>4)
     {
-    	cout<<"Non Ã¨ fra le opzioni. Riinserire"<<endl;
+    	cout<<"Non rientra fra le opzioni. Riinserire"<<endl;
     	cin>>opzione;
+	}
+	cout<<"Quanti prodotti di questo tipo vuoi? (max. 5)"<<endl;
+	cin>>quant;
+	while(quant<1 || quant>5)
+	{
+	    cout<<"Errore. Riinserire"<<endl;
+	    cin>>quant;
 	}
 	if(opzione == 1)
 	{
-		prezzo= 3,00;
+		prezzo= 3.00*quant;
+		tot=prezzo+tot;
+
 	}
 	else if(opzione == 2)
 	{
-		prezzo= 3,50;
+		prezzo= 3.50*quant;
+		tot=prezzo+tot;
+
 	}
 	else if(opzione == 3)
 	{
-		prezzo=4,00;
+		prezzo=4.00*quant;
+		tot=prezzo+tot;
+
 	}
 }
 void detersivi4()
 {
-    int opzione;
-	float prezzo, tot;
+    int opzione, quant;
+	float prezzo;
 	cout<<"*********************************************************************"<<endl;
     cout<<"Scegli il tipo di detersivo per PIATTI"<<endl;
-    cout<<"1. Detersivo n.1..........................................."<<endl;
-    cout<<"2. Detersivo n.2..........................................."<<endl;
-    cout<<"3. Detersivo n.3..........................................."<<endl;
+    cout<<"1. Detersivo n.1...........................................3,00$"<<endl;
+    cout<<"2. Detersivo n.2...........................................3,50$"<<endl;
+    cout<<"3. Detersivo n.3...........................................4,50$"<<endl;
     cout<<"*********************************************************************"<<endl;
     cin>>opzione;
     while(opzione<1 || opzione>4)
     {
-    	cout<<"Non Ã¨ fra le opzioni. Riinserire"<<endl;
+    	cout<<"Non rientra fra le opzioni. Riinserire"<<endl;
     	cin>>opzione;
+	}
+	cout<<"Quanti prodotti di questo tipo vuoi? (max. 5)"<<endl;
+	cin>>quant;
+	while(quant<1 || quant>5)
+	{
+	    cout<<"Errore. Riinserire"<<endl;
+	    cin>>quant;
 	}
 	if(opzione == 1)
 	{
-		prezzo= 3,00;
+		prezzo= 3.00*quant;
+		tot=prezzo+tot;
 	}
 	else if(opzione == 2)
 	{
-		prezzo= 3,50;
+		prezzo= 3.50*quant;
+		tot=prezzo+tot;
 	}
 	else if(opzione == 3)
 	{
-		prezzo=4,00;
+		prezzo=4.00*quant;
+     	tot=prezzo+tot;
+
 	}
+}
+void abbigliamentoM()
+{
+	int opzione, opzione1, prezzo, quant;
+	cout<<"*********************************************************************"<<endl;
+    cout<<"Scegliere la TAGLIA del capo d'abbigliamento                    "<<endl;
+    cout<<"1.S                                                 "<<endl;
+    cout<<"2.M                                                         "<<endl;
+    cout<<"3.L"<<endl;
+    cout<<"4.XL"<<endl;
+    cout<<"*********************************************************************"<<endl;
+    cin>>opzione;
+	while (scelta<1 || scelta>4)
+	{
+	    cout<<"Non e fra le opzioni. Riinserire"<<endl;
+	    cin>>opzione;
+	}
+	if(opzionevest==1)
+	{
+	cout<<"*********************************************************************"<<endl;
+    cout<<"Scegliere il tipo di MAGLIETTA                     "<<endl;
+    cout<<"1.Maglietta verde...........................................7,00$                                                 "<<endl;
+    cout<<"2.Maglietta arancione.......................................10,00$                                                    "<<endl;
+    cout<<"3.Maglietta rossa...........................................15,00$"<<endl;
+    cout<<"4.Maglietta viola...........................................20,00$"<<endl;
+    cout<<"*********************************************************************"<<endl;
+    cin>>opzione1;
+    cout<<"Quanti prodotti di questo tipo vuoi? (max. 5)"<<endl;
+	cin>>quant;
+	while(quant<1 || quant>5)
+	{
+	    cout<<"Errore. Riinserire"<<endl;
+	    cin>>quant;
+	}
+    switch(opzione1)
+    {
+        case 1:
+        prezzo=7*quant;
+        tot=prezzo+tot;
+        break;
+        case 2:
+        prezzo=10*quant;
+        tot=prezzo+tot;
+        break;
+        case 3:
+        prezzo=15*quant;
+        tot=prezzo+tot;
+        break;
+        case 4:
+        prezzo=20*quant;
+        tot=prezzo+tot;
+        break;
+        default:
+        break;
+    }
+	}
+
+	else if(opzionevest==2)
+	{
+	cout<<"*********************************************************************"<<endl;
+    cout<<"Scegliere il tipo di PANTALONE                    "<<endl;
+    cout<<"1.Jeans blu............................................30,00$                                                 "<<endl;
+    cout<<"2.Jeans neri...........................................30,00$                                                      "<<endl;
+    cout<<"3.Pantaloncini.........................................20,00$"<<endl;
+    cout<<"4.Pantaloni sportivi...................................25,00$"<<endl;
+    cout<<"*********************************************************************"<<endl;
+    cin>>opzione1;
+    cout<<"Quanti prodotti di questo tipo vuoi? (max. 5)"<<endl;
+	cin>>quant;
+	while(quant<1 || quant>5)
+	{
+	    cout<<"Errore. Riinserire"<<endl;
+	    cin>>quant;
+	}
+    switch(opzione1)
+    {
+        case 1:
+        prezzo=30*quant;
+        tot=prezzo+tot;
+        break;
+        case 2:
+        prezzo=30*quant;
+        tot=prezzo+tot;
+        break;
+        case 3:
+        prezzo=20*quant;
+        tot=prezzo+tot;
+        break;
+        case 4:
+        prezzo=25*quant;
+        tot=prezzo+tot;
+        break;
+        default:
+        break;
+    }
+	}
+	else if(opzionevest==3)
+	{
+	cout<<"*********************************************************************"<<endl;
+    cout<<"Scegliere il tipo di FELPA                  "<<endl;
+    cout<<"1.Felpa verde...........................................30,00$                                                "<<endl;
+    cout<<"2.Felpa arancione ......................................35,00$                                                     "<<endl;
+    cout<<"3.Felpa rossa...........................................40,00$"<<endl;
+    cout<<"4.Felpa viola...........................................45,00$"<<endl;
+    cout<<"*********************************************************************"<<endl;
+    cin>>opzione1;
+    cout<<"Quanti prodotti di questo tipo vuoi? (max. 5)"<<endl;
+	cin>>quant;
+	while(quant<1 || quant>5)
+	{
+	    cout<<"Errore. Riinserire"<<endl;
+	    cin>>quant;
+	}
+    switch(opzione1)
+    {
+        case 1:
+        prezzo=30*quant;
+        tot=prezzo+tot;
+        break;
+        case 2:
+        prezzo=35*quant;
+        tot=prezzo+tot;
+        break;
+        case 3:
+        prezzo=40*quant;
+        tot=prezzo+tot;
+        break;
+        case 4:
+        prezzo=45*quant;
+        tot=prezzo+tot;
+        break;
+        default:
+        break;
+    }
+	}
+	else
+	{
+	cout<<"*********************************************************************"<<endl;
+    cout<<"Scegliere il tipo di BIANCHERIA                     "<<endl;
+    cout<<"1.Biancheria n.1 ...........................................5,00$                                              "<<endl;
+    cout<<"2.Biancheria n.2 ...........................................7,00$                                                    "<<endl;
+    cout<<"3.Biancheria n.3............................................10,00$"<<endl;
+    cout<<"4.Biancheria n.4............................................12,00$"<<endl;
+    cout<<"*********************************************************************"<<endl;
+    cin>>opzione1;
+    cout<<"Quanti prodotti di questo tipo vuoi? (max. 5)"<<endl;
+	cin>>quant;
+	while(quant<1 || quant>5)
+	{
+	    cout<<"Errore. Riinserire"<<endl;
+	    cin>>quant;
+	}
+    switch(opzione1)
+    {
+        case 1:
+        prezzo=5*quant;
+        tot=prezzo+tot;
+        break;
+        case 2:
+        prezzo=7*quant;
+        tot=prezzo+tot;
+        break;
+        case 3:
+        prezzo=10*quant;
+        tot=prezzo+tot;
+        break;
+        case 4:
+        prezzo=12*quant;
+        tot=prezzo+tot;
+        break;
+        default:
+        break;
+    }
+
+}
+}
+void abbigliamentoF()
+{
+	int opzione, opzione1, prezzo, quant;
+	cout<<"*********************************************************************"<<endl;
+    cout<<"Scegliere la TAGLIA del capo d'abbigliamento                      "<<endl;
+    cout<<"1.S                                                 "<<endl;
+    cout<<"2.M                                                         "<<endl;
+    cout<<"3.L"<<endl;
+    cout<<"4.XL"<<endl;
+    cout<<"*********************************************************************"<<endl;
+    cin>>opzione;
+	while (scelta<1 || scelta>4)
+	{
+	    cout<<"Non e fra le opzioni. Riinserire"<<endl;
+	    cin>>opzione;
+	}
+	if(opzionevest==1)
+	{
+	cout<<"*********************************************************************"<<endl;
+    cout<<"Scegliere il tipo di MAGLIETTA                 "<<endl;
+    cout<<"1.Top verde...........................................7,00$                                                 "<<endl;
+    cout<<"2.Top arancione.......................................10,00$                                                      "<<endl;
+    cout<<"3.Top rossa...........................................15,00$"<<endl;
+    cout<<"4.Top viola...........................................20,0$"<<endl;
+    cout<<"*********************************************************************"<<endl;
+    cin>>opzione1;
+    cout<<"Quanti prodotti di questo tipo vuoi? (max. 5)"<<endl;
+	cin>>quant;
+	while(quant<1 || quant>5)
+	{
+	    cout<<"Errore. Riinserire"<<endl;
+	    cin>>quant;
+	}
+    switch(opzione1)
+    {
+        case 1:
+        prezzo=7*quant;
+        tot=prezzo+tot;
+        break;
+        case 2:
+        prezzo=10*quant;
+        tot=prezzo+tot;
+        break;
+        case 3:
+        prezzo=15*quant;
+        tot=prezzo+tot;
+        break;
+        case 4:
+        prezzo=20*quant;
+        tot=prezzo+tot;
+        break;
+        default:
+        break;
+    }
+	}
+	else if(opzionevest==2)
+	{
+	cout<<"*********************************************************************"<<endl;
+    cout<<"Scegliere il tipo di PANTALONE                     "<<endl;
+    cout<<"1.Jeans blu...........................................30,00$                                                 "<<endl;
+    cout<<"2.Jeans nero..........................................30,00$                                                     "<<endl;
+    cout<<"3.Pantaloncini........................................20,00$"<<endl;
+    cout<<"4.Leggins.............................................25,00$"<<endl;
+    cout<<"*********************************************************************"<<endl;
+	cin>>opzione1;
+	cout<<"Quanti prodotti di questo tipo vuoi? (max. 5)"<<endl;
+	cin>>quant;
+	while(quant<1 || quant>5)
+	{
+	    cout<<"Errore. Riinserire"<<endl;
+	    cin>>quant;
+	}
+    switch(opzione1)
+    {
+        case 1:
+        prezzo=30*quant;
+        tot=prezzo+tot;
+        break;
+        case 2:
+        prezzo=30*quant;
+        tot=prezzo+tot;
+        break;
+        case 3:
+        prezzo=20*quant;
+        tot=prezzo+tot;
+        break;
+        case 4:
+        prezzo=25*quant;
+        tot=prezzo+tot;
+        break;
+        default:
+        break;
+    }	
+	}
+	else if(opzionevest==3)
+	{
+	cout<<"*********************************************************************"<<endl;
+    cout<<"Scegliere il tipo di FELPA                    "<<endl;
+    cout<<"1.Felpa verde...........................................30,00$                                                "<<endl;
+    cout<<"2.Felpa arancione.......................................35,00$                                                      "<<endl;
+    cout<<"3.Felpa rossa...........................................40,00$"<<endl;
+    cout<<"4.Felpa viola...........................................45,00$"<<endl;
+    cout<<"*********************************************************************"<<endl;
+    cin>>opzione1;
+    cout<<"Quanti prodotti di questo tipo vuoi? (max. 5)"<<endl;
+	cin>>quant;
+	while(quant<1 || quant>5)
+	{
+	    cout<<"Errore. Riinserire"<<endl;
+	    cin>>quant;
+	}
+    switch(opzione1)
+    {
+        case 1:
+        prezzo=30*quant;
+        tot=prezzo+tot;
+        break;
+        case 2:
+        prezzo=35*quant;
+        tot=prezzo+tot;
+        break;
+        case 3:
+        prezzo=40*quant;
+        tot=prezzo+tot;
+        break;
+        case 4:
+        prezzo=45*quant;
+        tot=prezzo+tot;
+        break;
+        default:
+        break;
+    }
+	}
+	else
+	{
+	cout<<"*********************************************************************"<<endl;
+    cout<<"Scegliere il tipo di BIANCHERIA                     "<<endl;
+    cout<<"1.Biancheria n.1...........................................5,00$                                                "<<endl;
+    cout<<"2.Biancheria n.2...........................................7,00$                                                       "<<endl;
+    cout<<"3.Biancheria n.3...........................................10,00$"<<endl;
+    cout<<"4.Biancheria n.4...........................................12,00$"<<endl;
+    cout<<"*********************************************************************"<<endl;
+    cin>>opzione1;
+    cout<<"Quanti prodotti di questo tipo vuoi? (max. 5)"<<endl;
+	cin>>quant;
+	while(quant<1 || quant>5)
+	{
+	    cout<<"Errore. Riinserire"<<endl;
+	    cin>>quant;
+	}
+    switch(opzione1)
+    {
+        case 1:
+        prezzo=5*quant;
+        tot=prezzo+tot;
+        break;
+        case 2:
+        prezzo=7*quant;
+        tot=prezzo+tot;
+        break;
+        case 3:
+        prezzo=10*quant;
+        tot=prezzo+tot;
+        break;
+        case 4:
+        prezzo=12*quant;
+        tot=prezzo+tot;
+        break;
+        default:
+        break;
+    }
+	}
+}
+void pagamentoS()
+{
+    int risp, num, compleanno,numcivic;
+    float sconto;
+    string nom, via,sino;
+    cout<<"Inserire l'anno in cui si e' nati"<<endl;   
+        cin>>compleanno;
+        while(compleanno>2026 || compleanno<1926)
+        {
+            cout<<"Errore. Riinserire"<<endl;
+            cin>>compleanno;
+        }
+        compleanno=2026-compleanno;
+        if(compleanno<18)
+        {
+            cout<<"Non hai l'eta' adatta per crearti la carta,completerai il pagamento senza carta"<<endl;
+            pagamentoN();
+        }
+        
+        cout<<"Inserire nome e cognome"<<endl;
+        cin>>nom;
+        cin.ignore();
+        getline(cin,nom);
+        cout<<"Inserire il proprio numero"<<endl;
+        cin>>num;
+        while(num>99999999999 || num<100000000)
+        {
+            cout<<"Errore. Riinseire"<<endl;
+            cin>>num;
+        }
+        cout<<"Inserire la via in cui vi e' la propria abitazione"<<endl;
+        cin>>via;
+        cin.ignore();
+        getline(cin,via);
+        cout<<"Inserire il numero civico dell'abitazione"<<endl;
+        cin>>numcivic;
+        while(numcivic<1)
+        {
+            cout<<"Errore. Riinserire"<<endl;
+            cin>>numcivic;
+        }
+        sconto=tot*0.10;
+        tot=tot-sconto;
+        cout<<"Il totale e'¨ di "<<tot<<" euro. Il vostro ordine sarà consegnato il più presto possibile."<<endl;
+}
+void pagamentoN()
+{
+        cout<<"Il totale e' di "<<tot<<" euro"<<endl;
+}
+void Pasticceria()
+{
+    int opzion, quant, prezzo;
+    string risp;
+    while(risp !="NO" && risp !="no")
+    {
+    cout<<"***************************************************************"<<endl;
+    cout<<"Benvenuto nella zona Pasticceria, scegli tra queste tipi di Delizie"<<endl;                                            
+    cout<<"1. Lievitati da Forno..............................5,00$                                                           "<<endl;
+    cout<<"2. Torte...........................................20,00$                                                                  "<<endl;
+	cout<<"3. Paste Frolle....................................10,00$                                                            "<<endl;
+	cout<<"4. Paste Sfoglie...................................10,00$                                                         "<<endl;
+    cout<<"*****************************************************************"<<endl;
+    cin>>opzion;
+    while (opzion<1 || opzion>7)
+	{
+	    cout<<"Non e fra le opzioni. Riinserire"<<endl;
+	    cin>>opzion;
+	}
+	cout<<"Quanti prodotti di questo tipo vuoi? (max. 5)"<<endl;
+	cin>>quant;
+	while(quant<1 || quant>5)
+	{
+	    cout<<"Errore. Riinserire"<<endl;
+	    cin>>quant;
+	}
+	switch(opzion)
+    {
+        case 1:
+        prezzo=5*quant;
+        tot=prezzo+tot;
+        cout<<"Vuoi continuare?"<<endl;
+        cin>>risp;                                  
+        while(risp != "SI" && risp != "NO" && risp != "si" && risp !="no")
+		{
+		    cout<<"Riinserire la risposta"<<endl;
+		}
+        break;
+        case 2:
+        prezzo=20*quant;
+        tot=prezzo+tot;
+        cout<<"Vuoi continuare?"<<endl;
+        cin>>risp;                                  
+        while(risp != "SI" && risp != "NO" && risp != "si" && risp !="no")
+		{
+		    cout<<"Riinserire la risposta"<<endl;
+		}
+        break;
+        case 3:
+        prezzo=10*quant;
+        tot=prezzo+tot;
+        cout<<"Vuoi continuare?"<<endl;
+        cin>>risp;                                  
+        while(risp != "SI" && risp != "NO" && risp != "si" && risp !="no")
+		{
+		    cout<<"Riinserire la risposta"<<endl;
+		}
+        break;
+        case 4:
+        prezzo=10*quant;
+        tot=prezzo+tot;
+        cout<<"Vuoi continuare?"<<endl;
+        cin>>risp;                                  
+        while(risp != "SI" && risp != "NO" && risp != "si" && risp !="no")
+		{
+		    cout<<"Riinserire la risposta"<<endl;
+		}
+		break;
+        default:
+        break;
+    }
+    }
+    if(risp=="NO" || risp == "no")
+    {
+        pagamento();
+    }
+    
+    
+	
 }
