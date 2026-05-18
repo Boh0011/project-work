@@ -6,6 +6,7 @@
 using namespace std;
 int scelta, opzionevest;
 float tot=0;
+
 void detersivi();
 void abbigliamento();
 void pagamento();
@@ -262,151 +263,6 @@ void pagamento()
     }
     cout<<"*********************************************************************"<<endl;
 }
-void alimentari1()
-{
-    int op;
-    cout<<"********************************************************************************"<<endl;
-    cout<<"Benvenuto nella zona latticini, qui puoii scegliere vari tipi di latticini  "<<endl;                                            
-    cout<<"1. Formaggio                                                                "<<endl;
-    cout<<"2. Latte                                                                    "<<endl;
-    cout<<"3. Yougurt                                                                  "<<endl;
-    cout<<"4. Panna                                                                    "<<endl;
-    cout<<"5. Burro                                                                    "<<endl;
-    cout<<"6. Latticini fresci                                                         "<<endl;                              
-	cout<<"7. Vai al Pagamento                                                         "<<endl;
-    cout<<"8. Esci dal programma                                                       "<<endl;
-    cout<<"****************************************************************************"<<endl;
-    cin>>op;
-    while (op<1 || op>8)
-	{
-	    cout<<"Non e fra le opzioni. Riinserire"<<endl;
-	    cin>>op;
-	}
-	if (op==1)
-	{
-		cout<<"***************************************************************************"<<endl;
-        cout<<"Scegli cosa acquistare:                                               "<<endl;
-        cout<<"   PRODOTTO                                                      COSTO"<<endl;
-        cout<<"1. Parmigiano Reggiano(stagionatura di 12 mesi)..................15,24 ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬/Kg"<<endl;
-        cout<<"2. Grana Padano(stagionatura di 12/15 mesi)......................10,49 ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬/Kg"<<endl;
-        cout<<"3. Mozzarella....................................................7,91 ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬/Kg"<<endl;
-        cout<<"4. Gorgonzola ...................................................11,50 ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬/Kg"<<endl;
-        cout<<"5. Pecorino......................................................13,00 ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬/Kg"<<endl;
-        cout<<"---------------------------------------------------------------------------"<<endl;
-        cout<<"6. Pagamento                                                         "<<endl;
-        cout<<"7. Esci dal programma                                                "<<endl;
-        cout<<"****************************************************************************"<<endl;
-        cin>>op;
-        while (op<1 || op>7)
-	    {
-	    cout<<"Non e fra le opzioni. Riinserire"<<endl;
-	    cin>>op;
-	    }
-	    if (op==6)
-	    {
-	        pagamento();
-	    }
-	    else
-	    {
-	        exit;
-	    }
-	}
-	else if (op==2)
-	{
-	    cout<<"************************************************"<<endl;
-	    cout<<"scegli tra i due tipi di latte:"<<endl;
-	    cout<<"1. Latte di Origine Animale"<<endl;
-	    cout<<"2. Latte vegetale"<<endl;
-	    cout<<"************************************************"<<endl;
-	    cin>>op;
-	    while(op<1 || op>2)
-	    {
-	      cout<<"Non e fra le opzioni. Riinserire"<<endl;
-	      cin>>op;
-	    }
-	    if (op==1)
-	    {
-	        cout<<"*****************************************************"<<endl;
-	        cout<<"scegli cosa acquistare:"<<endl;
-	        cout<<"   PRODOTTO                            COSTO"<<endl;
-	        cout<<"1. Latte intero........................1,60ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬"<<endl;
-	        cout<<"2. Latte Parzialmente scremato.........1,60ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬"<<endl;
-	        cout<<"3. Latte di capra......................2,50ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬"<<endl;
-	        cout<<"4. Latte di pecora.....................4,10ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬"<<endl;
-	        cout<<"----------------------------------------------------"<<endl;
-	        cout<<"5. Pagamento"<<endl;
-	        cout<<"6. Esci dal programma"<<endl;
-	        cout<<"****************************************************"<<endl;
-	    }
-	    else
-	    {
-	        cout<<"*****************************************************"<<endl;
-	        cout<<"scegli cosa acquistare:"<<endl;
-	        cout<<"   PRODOTTO                            COSTO"<<endl;
-	        cout<<"1. Latte di soia.......................1.20ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬"<<endl;
-	        cout<<"2. Latte di riso.......................1.60ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬"<<endl;
-	        cout<<"3. Latte di avena......................1.60ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬"<<endl;
-	        cout<<"4. Latte di mandorla...................3.00ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬"<<endl;
-	        cout<<"5. latte di cocco......................2.40ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬"<<endl;
-	        cout<<"--------------------------------------------"<<endl;
-	        cout<<"5. Pagamento"<<endl;
-	        cout<<"6. Esci dal programma"<<endl;
-	        cout<<"****************************************************"<<endl;
-	    }
-	}
-	else if (op==3)
-	{
-		cout<<"************************************************"<<endl;
-	    cout<<"scegli tra i due tipi di Yougurt:"<<endl;
-	    cout<<"1. Yougurt di Origine Animale"<<endl;
-	    cout<<"2. Yougurt vegetale"<<endl;
-	    cout<<"************************************************"<<endl;
-	    cin>>op;
-	    while(op<1 || op>2)
-	    {
-	      cout<<"Non e fra le opzioni. Riinserire"<<endl;
-	      cin>>op;
-	    }
-		if (op==1)
-		cout<<"*****************************************************"<<endl;
-	    cout<<"scegli cosa acquistare:"<<endl;
-	    cout<<"   PRODOTTO                            COSTO"<<endl;
-	    cout<<"1. Yougurt greco.......................1,60ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬"<<endl;
-	    cout<<"2. Latte Parzialmente scremato.........1,60ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬"<<endl;
-	    cout<<"3. Latte di capra......................2,50ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬"<<endl;
-	    cout<<"4. Latte di pecora.....................4,10ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬"<<endl;
-	    cout<<"----------------------------------------------------"<<endl;
-	    cout<<"5. Pagamento"<<endl;
-	    cout<<"6. Esci dal programma"<<endl;
-	    cout<<"****************************************************"<<endl;
-	}
-	else if (op==4)
-	{
-		pagamento();
-	}
-	else if (op==1)
-	{
-		alimentari1();
-	}
-	else if (op==2)
-	{
-		detersivi();
-	}
-	else if (op==3)
-	{
-		abbigliamento();
-	}
-	else if (op==4)
-	{
-		pagamento();
-	}
-	else
-	{
-		exit;
-	}
-}
-
-
 
 void detersivi1()
 {
@@ -1054,4 +910,4 @@ void pasticceria()
     
     
 	
-}
+
