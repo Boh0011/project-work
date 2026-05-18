@@ -6,7 +6,7 @@
 using namespace std;
 int scelta, opzionevest;
 float tot=0;
-void alimentari();
+
 void detersivi();
 void abbigliamento();
 void pagamento();
@@ -17,10 +17,6 @@ void detersivi4();
 void abbigliamentoM();
 void abbigliamentoF();
 void pasticceria();
-void latticini();
-void fruttaverdura();
-void bevande();
-void snack();
 void pagamento();
 void pagamentoS();
 void pagamentoN();
@@ -29,12 +25,11 @@ int main()
     
     cout<<"*********************************************************************"<<endl;
     cout<<"Scegli cosa acquistare                                               "<<endl;
-    cout<<"1. Alimentari                                                        "<<endl;
-    cout<<"2. Detersivi                                                         "<<endl;
-    cout<<"3. Abbigliamento                                                     "<<endl;
-    cout<<"4. Pasticceria                                               "<<endl;
-    cout<<"8. Vai al Pagamento                                                  "<<endl;
-    cout<<"9. Esci dal programma                                                "<<endl;
+    cout<<"1. Detersivi                                                         "<<endl;
+    cout<<"2. Abbigliamento                                                     "<<endl;
+    cout<<"3. Pasticceria                                               "<<endl;
+    cout<<"4. Vai al Pagamento                                                  "<<endl;
+    cout<<"5. Esci dal programma                                                "<<endl;
     cout<<"*********************************************************************"<<endl;
     cin>>scelta;
 	while (scelta<1 || scelta>5)
@@ -44,17 +39,17 @@ int main()
 	}
 	if (scelta==1)
 	{
-	alimentari();
+      detersivi();
 	}
 	else if (scelta==2)
 	{
-		detersivi();
+		abbigliamento();
 	}
 	else if (scelta==3)
 	{
-		abbigliamento();
+		pasticceria();
 	}
-	else if (scelta==8)
+	else if (scelta==4)
 	{
 	    if(tot == 0)
 	    {
@@ -66,56 +61,14 @@ int main()
 	        pagamento();
 	    }
 	}
-	else if(scelta==4)
-	{
-	    pasticceria();
-	}
 	else
 	{
-		exit(0);
+	    exit(0);
 	}
-	
-	  return 0; 
+
+return 0; 
 }
-void alimentari()
-{
-	int o;
-	cout<<"****************************************************************************"<<endl;
-    cout<<"Benvenuto nella zona alimentari, qui puoii scegliere vari tipidi alimentari "<<endl;                                            
-    cout<<"1. Latticini                                                                "<<endl;
-    cout<<"2. Frutta / Verdura                                                         "<<endl;
-    cout<<"3. Bevande                                                                  "<<endl;
-    cout<<"4. Snack                                                                    "<<endl;
-    cout<<"5. Pasticceria                                                              "<<endl;
-    cout<<"****************************************************************************"<<endl;
-    cin>>o;
-    while (o<1 || o>5)
-	{
-	    cout<<"Non e fra le opzioni. Riinserire"<<endl;
-	    cin>>o;
-	}
-	if (o==1)
-	{
-		Latticini();
-	}
-	else if (o==2)
-	{
-		fruttaverdura();
-	}
-	else if (o==3)
-	{
-		bevande();
-	}
-	else if(o==4)
-	{
-	    snack();
-	}
-	else
-	{
-		Pasticceria();
-	}
-	
-}
+
 void detersivi()
 {
 
@@ -269,7 +222,7 @@ void pagamento()
     {
         pagamentoN();
     }
-    cout<<"Vuoi spendere 5 euro per girare la ruota della fortuna per avere la possibilitaì di ricevere un ulteriore sconto? (S/N)"<<endl;
+    cout<<"Vuoi spendere 5 euro per girare la ruota della fortuna per avere la possibilitaÃ¬ di ricevere un ulteriore sconto? (S/N)"<<endl;
     cin>>sn;
     while(sn != 'S' && sn != 'N')
     {
@@ -282,10 +235,10 @@ void pagamento()
         n = rand() % 12+1;
         if(n == 6)
         {
-            cout<<"Il numero che ti è uscito è il "<<n<<". Poiche' e' il numero fortunato per ottenere lo sconto,ti toglieremo il 10 per cente dal totale da pagare"<<endl;
+            cout<<"Il numero che ti Ã¨ uscito Ã¨ il "<<n<<". Poiche' e' il numero fortunato per ottenere lo sconto,ti toglieremo il 10 per cente dal totale da pagare"<<endl;
             sconto=tot*0.10;
             tot=tot-sconto+5;
-            cout<<"Il tuo totale ora è di "<<tot<<" euro"<<endl;
+            cout<<"Il tuo totale ora Ã¨ di "<<tot<<" euro"<<endl;
         }
         else
         {
@@ -335,11 +288,11 @@ void alimentari1()
 		cout<<"***************************************************************************"<<endl;
         cout<<"Scegli cosa acquistare:                                               "<<endl;
         cout<<"   PRODOTTO                                                      COSTO"<<endl;
-        cout<<"1. Parmigiano Reggiano(stagionatura di 12 mesi)..................15,24 ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬/Kg"<<endl;
-        cout<<"2. Grana Padano(stagionatura di 12/15 mesi)......................10,49 ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬/Kg"<<endl;
-        cout<<"3. Mozzarella....................................................7,91 ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬/Kg"<<endl;
-        cout<<"4. Gorgonzola ...................................................11,50 ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬/Kg"<<endl;
-        cout<<"5. Pecorino......................................................13,00 ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬/Kg"<<endl;
+        cout<<"1. Parmigiano Reggiano(stagionatura di 12 mesi)..................15,24 ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬/Kg"<<endl;
+        cout<<"2. Grana Padano(stagionatura di 12/15 mesi)......................10,49 ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬/Kg"<<endl;
+        cout<<"3. Mozzarella....................................................7,91 ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬/Kg"<<endl;
+        cout<<"4. Gorgonzola ...................................................11,50 ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬/Kg"<<endl;
+        cout<<"5. Pecorino......................................................13,00 ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬/Kg"<<endl;
         cout<<"---------------------------------------------------------------------------"<<endl;
         cout<<"6. Pagamento                                                         "<<endl;
         cout<<"7. Esci dal programma                                                "<<endl;
@@ -377,10 +330,10 @@ void alimentari1()
 	        cout<<"*****************************************************"<<endl;
 	        cout<<"scegli cosa acquistare:"<<endl;
 	        cout<<"   PRODOTTO                            COSTO"<<endl;
-	        cout<<"1. Latte intero........................1,60ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬"<<endl;
-	        cout<<"2. Latte Parzialmente scremato.........1,60ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬"<<endl;
-	        cout<<"3. Latte di capra......................2,50ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬"<<endl;
-	        cout<<"4. Latte di pecora.....................4,10ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬"<<endl;
+	        cout<<"1. Latte intero........................1,60ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬"<<endl;
+	        cout<<"2. Latte Parzialmente scremato.........1,60ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬"<<endl;
+	        cout<<"3. Latte di capra......................2,50ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬"<<endl;
+	        cout<<"4. Latte di pecora.....................4,10ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬"<<endl;
 	        cout<<"----------------------------------------------------"<<endl;
 	        cout<<"5. Pagamento"<<endl;
 	        cout<<"6. Esci dal programma"<<endl;
@@ -391,11 +344,11 @@ void alimentari1()
 	        cout<<"*****************************************************"<<endl;
 	        cout<<"scegli cosa acquistare:"<<endl;
 	        cout<<"   PRODOTTO                            COSTO"<<endl;
-	        cout<<"1. Latte di soia.......................1.20ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬"<<endl;
-	        cout<<"2. Latte di riso.......................1.60ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬"<<endl;
-	        cout<<"3. Latte di avena......................1.60ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬"<<endl;
-	        cout<<"4. Latte di mandorla...................3.00ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬"<<endl;
-	        cout<<"5. latte di cocco......................2.40ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬"<<endl;
+	        cout<<"1. Latte di soia.......................1.20ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬"<<endl;
+	        cout<<"2. Latte di riso.......................1.60ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬"<<endl;
+	        cout<<"3. Latte di avena......................1.60ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬"<<endl;
+	        cout<<"4. Latte di mandorla...................3.00ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬"<<endl;
+	        cout<<"5. latte di cocco......................2.40ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬"<<endl;
 	        cout<<"--------------------------------------------"<<endl;
 	        cout<<"5. Pagamento"<<endl;
 	        cout<<"6. Esci dal programma"<<endl;
@@ -419,10 +372,10 @@ void alimentari1()
 		cout<<"*****************************************************"<<endl;
 	    cout<<"scegli cosa acquistare:"<<endl;
 	    cout<<"   PRODOTTO                            COSTO"<<endl;
-	    cout<<"1. Yougurt greco.......................1,60ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬"<<endl;
-	    cout<<"2. Latte Parzialmente scremato.........1,60ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬"<<endl;
-	    cout<<"3. Latte di capra......................2,50ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬"<<endl;
-	    cout<<"4. Latte di pecora.....................4,10ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬"<<endl;
+	    cout<<"1. Yougurt greco.......................1,60ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬"<<endl;
+	    cout<<"2. Latte Parzialmente scremato.........1,60ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬"<<endl;
+	    cout<<"3. Latte di capra......................2,50ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬"<<endl;
+	    cout<<"4. Latte di pecora.....................4,10ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬"<<endl;
 	    cout<<"----------------------------------------------------"<<endl;
 	    cout<<"5. Pagamento"<<endl;
 	    cout<<"6. Esci dal programma"<<endl;
@@ -1017,7 +970,7 @@ void pagamentoS()
         }
         sconto=tot*0.10;
         tot=tot-sconto;
-        cout<<"Il totale e'¨ di "<<tot<<" euro. Il vostro ordine sarà consegnato il più presto possibile."<<endl;
+        cout<<"Il totale e'Â¨ di "<<tot<<" euro. Il vostro ordine sarÃ  consegnato il piÃ¹ presto possibile."<<endl;
 }
 void pagamentoN()
 {
@@ -1102,132 +1055,4 @@ void pasticceria()
     
     
 	
-}
-void latticini
-{
-    int o, p, tot;
-    cout<<"************************************************************************"<<endl;
-    cout<<"Benvenuto nella zona latticini, scegli te questi tre tipi di latticini:"<<endl;
-    cout<<"1. Latte"<<endl;
-    cout<<"2. Formaggio"<<endl;
-    cout<<"3. Burro"<<endl;
-    cout<<"************************************************************************"<<endl;
-    cin>>o;
-    while(o<1 || o>3)
-    {
-        cout<<"ERRORE, riinserire il numero"<<endl;
-        cin>>o;
-    }
-    if(o==1)
-    {
-        cout<<"************************************************************************"<<endl;
-        cout<<"Scegli tra aquesti tipi di latte:"<<endl;
-        cout<<"1. Latte intero.......................2,00$"<<endl;
-        cout<<"2. Latte scremato.....................3,00$"<<endl;
-        cout<<"3. Latte parzialmente scremato........2,00$"<<endl;
-        cout<<"************************************************************************"<<endl;
-        cin>>o;
-        while(o<1 || o>3)
-        {
-            cout<<"ERRORE, riinserire il numero"<<endl;
-            cin>>o;
-        }
-        cout<<"il massimo di prodotti che puoi e 5."<<endl;
-        cin>>p;
-        while(p<1 || p>5)
-        {
-            cout<<"ERRORE, Riinserire"<<endl;
-            cin>>p;
-        }
-        if(o==1)
-        {
-        tot=2*p+tot;
-        cout<<"il totale e "<<tot<<endl;
-        }
-        else if(o==2)
-        {
-            tot=3*p+tot;
-            cout<<"il totale e "<<tot<<endl;
-        }
-        else
-        {
-            tot=2*p+tot;
-            cout<<"il totale e "<<tot<<endl;
-        }
-    }
-    else if(o==2)
-    {
-        cout<<"************************************************************************"<<endl;
-        cout<<"Scegli tra aquesti tipi di Formaggio:"<<endl;
-        cout<<"1. Mozzarella......................5,00$"<<endl;
-        cout<<"2. Gorgonzola......................6,00$"<<endl;
-        cout<<"3. Grano padano....................20,00$"<<endl;
-        cout<<"************************************************************************"<<endl;
-        cin>>o;
-        while(o<1 || o>3)
-        {
-            cout<<"ERRORE, riinserire il numero"<<endl;
-            cin>>o;
-        }
-        cout<<"il massimo di prodotti che puoi e 5."<<endl;
-        cin>>p;
-        while(p<1 || p>5)
-        {
-            cout<<"ERRORE, Riinserire"<<endl;
-            cin>>p;
-        }
-        if(o==1)
-        {
-            tot=5*p+tot;
-            cout<<"il totale e "<<tot<<endl;
-        }
-        else if(o==2)
-        {
-            tot=6*p+tot;
-            cout<<"il totale e "<<tot<<endl;
-        }
-        else
-        {
-            tot=20*p+tot;
-            cout<<"il totale e "<<tot<<endl;
-        }
-    }
-    else
-    {
-        cout<<"************************************************************************"<<endl;
-        cout<<"Scegli tra aquesti tipi di burro:"<<endl;
-        cout<<"1. Burro 1.....................5,00$"<<endl;
-        cout<<"2. Burro 2.....................3,00$"<<endl;
-        cout<<"3. Burro 3.....................2,00$"<<endl;
-        cout<<"************************************************************************"<<endl;
-        cin>>o;
-        while(o<1 || o>3)
-        {
-            cout<<"ERRORE, riinserire il numero"<<endl;
-            cin>>o;
-        }
-        cout<<"il massimo di prodotti che puoi e 5."<<endl;
-        cin>>p;
-        while(p<1 || p>5)
-        {
-            cout<<"ERRORE, Riinserire"<<endl;
-            cin>>p;
-        }
-        if(o==1)
-        {
-            tot=5*p+tot;
-            cout<<"il totale e "<<tot<<endl;
-        }
-        else if(o==2)
-        {
-            tot=3*p+tot;
-            cout<<"il totale e "<<tot<<endl;
-        }
-        else
-        {
-            tot=2*p+tot;
-            cout<<"il totale e "<<tot<<endl;
-        } 
-    }
-
 }
