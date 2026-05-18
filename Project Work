@@ -6,6 +6,7 @@
 using namespace std;
 int scelta, opzionevest;
 float tot=0;
+
 void alimentari();
 void detersivi();
 void abbigliamento();
@@ -1444,6 +1445,7 @@ void Latticini()
 	{
 		exit;
 	}
+}
 void FruttaVerdura()
 {
     int opzi, kg, costo;
@@ -1979,3 +1981,4 @@ void Snack()
     {
         pagamento();
     }
+}
