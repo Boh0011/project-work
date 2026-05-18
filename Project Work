@@ -31,8 +31,8 @@ int main()
     cout<<"2. Detersivi                                                         "<<endl;
     cout<<"3. Abbigliamento                                                     "<<endl;
     cout<<"4. Pasticceria                                               "<<endl;
-    cout<<"8. Vai al Pagamento                                                  "<<endl;
-    cout<<"9. Esci dal programma                                                "<<endl;
+    cout<<"5. Vai al Pagamento                                                  "<<endl;
+    cout<<"6. Esci dal programma                                                "<<endl;
     cout<<"*********************************************************************"<<endl;
     cin>>scelta;
 	while (scelta<1 || scelta>5)
@@ -52,7 +52,7 @@ int main()
 	{
 		abbigliamento();
 	}
-	else if (scelta==8)
+	else if (scelta==4)
 	{
 	    if(tot == 0)
 	    {
@@ -64,7 +64,7 @@ int main()
 	        pagamento();
 	    }
 	}
-	else if(scelta==4)
+	else if(scelta==5)
 	{
 	    Pasticceria();
 	}
