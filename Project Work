@@ -6,12 +6,10 @@
 using namespace std;
 int scelta, opzionevest;
 float tot=0;
-
 void alimentari();
 void detersivi();
 void abbigliamento();
 void pagamento();
-void alimentari1();
 void detersivi1();
 void detersivi2();
 void detersivi3();
@@ -98,7 +96,7 @@ void alimentari()
 	}
 	if (o==1)
 	{
-		latticini();
+		Latticini();
 	}
 	else if (o==2)
 	{
@@ -1104,4 +1102,132 @@ void pasticceria()
     
     
 	
+}
+void latticini
+{
+    int o, p, tot;
+    cout<<"************************************************************************"<<endl;
+    cout<<"Benvenuto nella zona latticini, scegli te questi tre tipi di latticini:"<<endl;
+    cout<<"1. Latte"<<endl;
+    cout<<"2. Formaggio"<<endl;
+    cout<<"3. Burro"<<endl;
+    cout<<"************************************************************************"<<endl;
+    cin>>o;
+    while(o<1 || o>3)
+    {
+        cout<<"ERRORE, riinserire il numero"<<endl;
+        cin>>o;
+    }
+    if(o==1)
+    {
+        cout<<"************************************************************************"<<endl;
+        cout<<"Scegli tra aquesti tipi di latte:"<<endl;
+        cout<<"1. Latte intero.......................2,00$"<<endl;
+        cout<<"2. Latte scremato.....................3,00$"<<endl;
+        cout<<"3. Latte parzialmente scremato........2,00$"<<endl;
+        cout<<"************************************************************************"<<endl;
+        cin>>o;
+        while(o<1 || o>3)
+        {
+            cout<<"ERRORE, riinserire il numero"<<endl;
+            cin>>o;
+        }
+        cout<<"il massimo di prodotti che puoi e 5."<<endl;
+        cin>>p;
+        while(p<1 || p>5)
+        {
+            cout<<"ERRORE, Riinserire"<<endl;
+            cin>>p;
+        }
+        if(o==1)
+        {
+        tot=2*p+tot;
+        cout<<"il totale e "<<tot<<endl;
+        }
+        else if(o==2)
+        {
+            tot=3*p+tot;
+            cout<<"il totale e "<<tot<<endl;
+        }
+        else
+        {
+            tot=2*p+tot;
+            cout<<"il totale e "<<tot<<endl;
+        }
+    }
+    else if(o==2)
+    {
+        cout<<"************************************************************************"<<endl;
+        cout<<"Scegli tra aquesti tipi di Formaggio:"<<endl;
+        cout<<"1. Mozzarella......................5,00$"<<endl;
+        cout<<"2. Gorgonzola......................6,00$"<<endl;
+        cout<<"3. Grano padano....................20,00$"<<endl;
+        cout<<"************************************************************************"<<endl;
+        cin>>o;
+        while(o<1 || o>3)
+        {
+            cout<<"ERRORE, riinserire il numero"<<endl;
+            cin>>o;
+        }
+        cout<<"il massimo di prodotti che puoi e 5."<<endl;
+        cin>>p;
+        while(p<1 || p>5)
+        {
+            cout<<"ERRORE, Riinserire"<<endl;
+            cin>>p;
+        }
+        if(o==1)
+        {
+            tot=5*p+tot;
+            cout<<"il totale e "<<tot<<endl;
+        }
+        else if(o==2)
+        {
+            tot=6*p+tot;
+            cout<<"il totale e "<<tot<<endl;
+        }
+        else
+        {
+            tot=20*p+tot;
+            cout<<"il totale e "<<tot<<endl;
+        }
+    }
+    else
+    {
+        cout<<"************************************************************************"<<endl;
+        cout<<"Scegli tra aquesti tipi di burro:"<<endl;
+        cout<<"1. Burro 1.....................5,00$"<<endl;
+        cout<<"2. Burro 2.....................3,00$"<<endl;
+        cout<<"3. Burro 3.....................2,00$"<<endl;
+        cout<<"************************************************************************"<<endl;
+        cin>>o;
+        while(o<1 || o>3)
+        {
+            cout<<"ERRORE, riinserire il numero"<<endl;
+            cin>>o;
+        }
+        cout<<"il massimo di prodotti che puoi e 5."<<endl;
+        cin>>p;
+        while(p<1 || p>5)
+        {
+            cout<<"ERRORE, Riinserire"<<endl;
+            cin>>p;
+        }
+        if(o==1)
+        {
+            tot=5*p+tot;
+            cout<<"il totale e "<<tot<<endl;
+        }
+        else if(o==2)
+        {
+            tot=3*p+tot;
+            cout<<"il totale e "<<tot<<endl;
+        }
+        else
+        {
+            tot=2*p+tot;
+            cout<<"il totale e "<<tot<<endl;
+        } 
+    }
+
 }
